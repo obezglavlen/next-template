@@ -1,10 +1,10 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import { getServerSession } from "next-auth";
-import { NextPage } from "next";
-import { authConfig } from "@/config";
-import { signOut } from "next-auth/react";
-import { SignOutButton } from "@/SignOutButton";
+import Image from 'next/image';
+import styles from './page.module.css';
+import { getServerSession } from 'next-auth';
+import { NextPage } from 'next';
+import { authConfig } from '@/config';
+import { signOut } from 'next-auth/react';
+import { SignOutButton } from '@/SignOutButton';
 
 const Page: NextPage = async () => {
   const session = await getServerSession(authConfig);
@@ -22,7 +22,7 @@ const Page: NextPage = async () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{" "}
+            By{' '}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"

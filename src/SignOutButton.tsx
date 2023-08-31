@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { signOut } from "next-auth/react";
-import { FC, PropsWithChildren } from "react";
+import { signOut } from 'next-auth/react';
+import { FC, PropsWithChildren } from 'react';
 
 interface ButtonProps {}
 
