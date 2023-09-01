@@ -1,14 +1,19 @@
-import { SignOutButton } from '@/components/signOutButton';
-import { getServerSession } from 'next-auth';
-import { NextPage } from 'next/types';
+'use client';
 
-const Page: NextPage = async () => {
-  const session = await getServerSession();
+import { signOut, useSession } from 'next-auth/react';
+import { NextPage } from 'next/types';
+import { Posts } from './posts';
+
+const Page: NextPage = () => {
+  const session = useSession();
   return (
     <div>
-      <div>You are authorized with credentials: {session?.user?.name}</div>
-      <SignOutButton />
+      <div>
+        You are authorized with credentials: {session?.data?.user?.name}
+      </div>
+      <button onClick={() => signOut()}>SignOut</button>;
       <a href="/api/auth/signin">Sign In</a>
+      <Posts />
     </div>
   );
 };
