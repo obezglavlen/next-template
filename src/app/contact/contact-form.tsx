@@ -21,7 +21,6 @@ export const ContactForm = () => {
         isAcceptPolicy: undefined,
       },
     });
-  console.log(getValues());
 
   return (
     <Form handleSubmit={handleSubmit(onSubmit)} className='gap-6'>
