@@ -1,10 +1,14 @@
 'use client';
 
-import { CSSProperties, FC, HTMLInputTypeAttribute, PropsWithChildren } from 'react';
+import {
+  CSSProperties,
+  FC,
+  HTMLInputTypeAttribute,
+  PropsWithChildren,
+} from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import styles from './styles.module.scss';
 
 export interface FormField {
   label: string;
@@ -32,17 +36,10 @@ export const Form: FC<FormProps> = (props) => {
   console.log(formState.touchedFields);
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className={[styles.container, styles.form].join(' ')}
-    >
+    <form onSubmit={handleSubmit(onSubmit)}>
       {items?.map((item) => (
-        <div
-          key={item.name}
-          className={styles.fieldContainer}
-          style={{ '--col': 4 } as CSSProperties}
-        >
-          <div className={styles.field}>
+        <div key={item.name}>
+          <div>
             <label htmlFor={item.name}>{item.label}</label>
             <input type={item.type} {...register(item.name)} />
           </div>
@@ -52,9 +49,7 @@ export const Form: FC<FormProps> = (props) => {
           )}
         </div>
       ))}
-      <div className={styles.childrens}>
-      {children}
-      </div>
+      <div>{children}</div>
     </form>
   );
 };
