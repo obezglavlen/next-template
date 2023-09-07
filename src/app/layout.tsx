@@ -1,3 +1,4 @@
+import './global.css';
 import { Providers } from '@/providers';
 import { Metadata } from 'next/types';
 import { FC, PropsWithChildren } from 'react';

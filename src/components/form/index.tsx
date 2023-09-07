@@ -1,55 +1,16 @@
-'use client';
+import { FlexColumn, FlexRow } from '@/components/flex';
+import { PropsWithClassName } from '@/types';
+import { FC, PropsWithChildren } from 'react';
+export * from './form-input';
 
-import {
-  CSSProperties,
-  FC,
-  HTMLInputTypeAttribute,
-  PropsWithChildren,
-} from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-export interface FormField {
-  label: string;
-  name: string;
-  type: HTMLInputTypeAttribute;
-}
-
-interface FormProps extends PropsWithChildren {
-  onSubmit: (data: any) => void;
-  defaultValues?: any;
-  zodSchema: z.Schema;
-  items?: FormField[];
-}
-
-export const Form: FC<FormProps> = (props) => {
-  const { zodSchema, onSubmit, items, children, defaultValues } = props;
-  const { register, handleSubmit, formState } = useForm<
-    z.infer<typeof zodSchema>
-  >({
-    defaultValues,
-    resolver: zodResolver(zodSchema),
-    mode: 'onBlur',
-  });
-
-  console.log(formState.touchedFields);
-
+type FormProps = {
+  handleSubmit: () => void;
+} & PropsWithChildren &
+  PropsWithClassName;
+export const Form: FC<FormProps> = ({ handleSubmit, children, className }) => {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {items?.map((item) => (
-        <div key={item.name}>
-          <div>
-            <label htmlFor={item.name}>{item.label}</label>
-            <input type={item.type} {...register(item.name)} />
-          </div>
-          {(formState.errors[item.name] ||
-            !formState.touchedFields[item.name]) && (
-            <p>{formState.errors[item.name]?.message?.toString()}</p>
-          )}
-        </div>
-      ))}
-      <div>{children}</div>
+    <form onSubmit={handleSubmit}>
+      <FlexColumn className={className}>{children}</FlexColumn>
     </form>
   );
 };

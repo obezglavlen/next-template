@@ -1,16 +1,16 @@
 import {
   ContactPayload,
   ContactResponse,
-  contactPayload,
+  contactSchema,
 } from '@/types/contact';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
 export const POST = async (req: NextRequest) => {
-  const body = await req.json() as ContactPayload;
+  const body = (await req.json()) as ContactPayload;
 
   try {
-    const parsed = contactPayload.parse(body);
+    const parsed = contactSchema.parse(body);
 
     console.log(parsed);
     return NextResponse.json({ ok: true });
