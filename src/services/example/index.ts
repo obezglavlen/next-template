@@ -1,13 +1,14 @@
 import { Post } from '@/types/example';
+import type {QueryFunctionContext} from 'react-query'
 
 class ExampleService {
   /* Any nextjs server-side stuff */
 }
 
 class ExampleApi {
-  fetchPosts(): Promise<Post[]> {
-    return fetch('https://jsonplaceholder.typicode.com/posts').then((r) =>
-      r.json()
+  fetchPosts({ signal }: QueryFunctionContext): Promise<Post[]> {
+    return fetch('https://jsonplaceholder.typicode.com/posts', { signal }).then(
+      (r) => r.json()
     );
   }
 
