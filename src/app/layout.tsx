@@ -1,7 +1,13 @@
-import './global.css';
 import { Providers } from '@/providers';
+import classNames from 'classnames';
+import { Inter } from 'next/font/google';
 import { Metadata } from 'next/types';
 import { FC, PropsWithChildren } from 'react';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'next-template',
@@ -9,7 +15,7 @@ export const metadata: Metadata = {
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={classNames(inter.className)}>
       <body>
         <Providers>{children}</Providers>
       </body>
