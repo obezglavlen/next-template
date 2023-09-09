@@ -1,12 +1,29 @@
-import { NextPage } from 'next/types';
+import { twMerge } from 'tailwind-merge';
 
-const Page: NextPage = () => {
+export default function Home() {
   return (
-    <div>
-      <div>Hello world</div>
-      <a href="/hello">Go to hello page</a>
+    <div
+      className={twMerge(
+        `
+        flex
+        flex-col
+        items-center
+        h-full
+        bg-slate-700`
+      )}
+    >
+      <p
+        className={twMerge(
+          `
+          text-zinc-950
+          dark:text-zinc-50
+          font-bold
+          mt-20
+          text-4xl`
+        )}
+      >
+        Hello world
+      </p>
     </div>
   );
-};
-
-export default Page;
+}
