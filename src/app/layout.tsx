@@ -1,10 +1,14 @@
 import { Providers } from '@/providers';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import {Neuton} from 'next/font/google'
+import { Neuton } from 'next/font/google';
 import './globals.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import { Sidebar } from '@/components/common/Sidebar';
 import { twMerge } from 'tailwind-merge';
+import { ToastContainer } from 'react-toastify';
+import { Flex } from '@/components/common/Flex';
+import { Box } from '@/components/common/Box';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,36 +24,44 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <Providers>
-          <div
+      <Providers>
+        <Flex
+          as='body'
+          className={twMerge(
+            `
+            justify-between
+            py-2
+            `
+          )}
+        >
+          <Sidebar />
+          <Box
             className={twMerge(
               `
-            flex
-            flex-row
-            gap-2
-            py-2
-            mx-auto
-            h-full
-            `
+              rounded-l-md
+              p-0
+              overflow-hidden
+              h-full
+              w-full
+              `
             )}
           >
-            <Sidebar />
-            <div
-              className={twMerge(
-                `
-                rounded-l-md
-                overflow-hidden
-                h-full
-                w-full
-                `
-              )}
-            >
-              {children}
-            </div>
-          </div>
-        </Providers>
-      </body>
+            {children}
+          </Box>
+        </Flex>
+        <ToastContainer
+          position='top-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={'dark'}
+        />
+      </Providers>
     </html>
   );
 }

@@ -1,14 +1,17 @@
 'use client';
 
 import { LeftIcon } from '@/icons/feather/LeftIcon';
+import { MoonIcon } from '@/icons/feather/MoonIcon';
 import { RightIcon } from '@/icons/feather/RightIcon';
+import { SunIcon } from '@/icons/feather/SunIcon';
 import { useThemeContext } from '@/providers/ThemeProvider';
-import { WithClassName } from '@/types/idnex';
+import { PropsWithClassName } from '@/types/idnex';
 import Image from 'next/image';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { twMerge } from 'tailwind-merge';
 
-type HeaderProps = {} & WithClassName;
+type HeaderProps = {} & PropsWithClassName;
 
 export const Sidebar = ({ className }: HeaderProps) => {
   const { isDarkTheme, switchTheme } = useThemeContext();
@@ -26,7 +29,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
         bg-slate-600
         flex
         flex-col
-        rounded-md
+        rounded-r-md
         p-2
         relative
         `,
@@ -74,37 +77,52 @@ export const Sidebar = ({ className }: HeaderProps) => {
           />
         )}
       </button>
-      <div>
-        <div
+      <div
+        className={twMerge(
+          `
+        h-8
+        w-8
+        relative
+        cursor-pointer
+        `
+        )}
+      >
+        {isDarkTheme ? (
+          <MoonIcon
+            height={32}
+            width={32}
+            className='text-slate-50'
+            strokeWidth={1}
+          ></MoonIcon>
+        ) : (
+          <SunIcon
+            height={32}
+            width={32}
+            className='text-slate-50'
+            strokeWidth={1}
+          >
+            das
+          </SunIcon>
+        )}
+        <input
+          type='checkbox'
+          checked={isDarkTheme}
+          id='theme-switch'
+          onChange={() => {
+            toast('Theme changed', {theme: isDarkTheme ? 'dark' : 'light'});
+            switchTheme();
+          }}
           className={twMerge(
             `
-            bg-[url("/icons/feather/sun_icon.svg")]
-            dark:bg-[url("/icons/feather/moon_icon.svg")]
-            bg-cover
-            bg-no-repeat
-            bg-center
-            h-8
-            w-8
-            ml-auto
-            `
-          )}
-        >
-          <input
-            type='checkbox'
-            checked={isDarkTheme}
-            id='theme-switch'
-            onChange={() => {
-              switchTheme();
-            }}
-            className={twMerge(
-              `
               opacity-0
               w-full
               h-full
+              absolute
+              top-0
+              left-0
               `
-            )}
-          />
-        </div>
+          )}
+        />
       </div>
     </aside>
   );
