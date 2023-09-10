@@ -1,13 +1,14 @@
 'use client';
 
+import { toast } from 'react-toastify';
+
 import { Button } from '@/components/common/Button';
 import { Grid } from '@/components/common/Grid';
-import { toast } from 'react-toastify';
 
 export const Temp = () => {
   const onClick = () => {
     toast('Yo mama gay');
-  }
+  };
 
   return (
     <Grid.Root col={2} row={4} className='text-black'>
@@ -18,7 +19,9 @@ export const Temp = () => {
         World
       </Grid.Item>
       <Grid.Item rowSpan={3} className='bg-blue-100'>
-        <Button.Default type='button' onClick={onClick}>Тин дин тин дин</Button.Default>
+        <Button.Default type='button' onClick={onClick}>
+          Тин дин тин дин
+        </Button.Default>
       </Grid.Item>
     </Grid.Root>
   );
