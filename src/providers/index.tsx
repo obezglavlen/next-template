@@ -1,9 +1,10 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
 import { SessionProvider } from 'next-auth/react';
+import { PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ThemeProvider } from './ThemeProvider';
+
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 export const queryClient = new QueryClient();
 

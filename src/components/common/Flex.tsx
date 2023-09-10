@@ -1,6 +1,7 @@
-import { PropsWithAs, PropsWithClassName } from '@/types/idnex';
 import { ElementType, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
+
+import { PropsWithAs, PropsWithClassName } from '@/types';
 
 const defaultComponent = 'div';
 

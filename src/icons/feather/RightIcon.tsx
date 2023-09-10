@@ -1,18 +1,19 @@
-import { SVGProps } from "react"
+import { SVGProps } from 'react';
+
 export const RightIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
+    xmlns='http://www.w3.org/2000/svg'
     width={24}
     height={24}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    strokeLinecap='round'
+    strokeLinejoin='round'
     strokeWidth={2}
-    className="feather feather-chevron-right"
+    className='feather feather-chevron-right'
     {...props}
   >
-    <path d="m9 18 6-6-6-6" />
+    <path d='m9 18 6-6-6-6' />
   </svg>
-)
+);

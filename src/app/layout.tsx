@@ -1,14 +1,16 @@
-import { Providers } from '@/providers';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { Neuton } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
+import { twMerge } from 'tailwind-merge';
+
+import { Box } from '@/components/common/Box';
+import { Flex } from '@/components/common/Flex';
+import { Sidebar } from '@/components/sections/Sidebar';
+
+import { Providers } from '@/providers';
+
 import './globals.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { Sidebar } from '@/components/common/Sidebar';
-import { twMerge } from 'tailwind-merge';
-import { ToastContainer } from 'react-toastify';
-import { Flex } from '@/components/common/Flex';
-import { Box } from '@/components/common/Box';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,43 +27,46 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Providers>
-        <Flex
-          as='body'
-          className={twMerge(
-            `
-            justify-between
-            py-2
-            `,
-            inter.className
-          )}
-        >
-          <Sidebar />
-          <Box
+        <body className={inter.className}>
+          <Flex
+            as='main'
             className={twMerge(
               `
+              justify-between
+              py-2
+              h-full
+              w-full
+              `
+            )}
+          >
+            <Sidebar />
+            <Box
+              className={twMerge(
+                `
               rounded-l-md
               p-0
               overflow-hidden
               h-full
               w-full
               `
-            )}
-          >
-            {children}
-          </Box>
-        </Flex>
-        {/* <ToastContainer
-          position='top-right'
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme={'dark'}
-        /> */}
+              )}
+            >
+              {children}
+            </Box>
+          </Flex>
+          <ToastContainer
+            position='top-right'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme={'dark'}
+          />
+        </body>
       </Providers>
     </html>
   );

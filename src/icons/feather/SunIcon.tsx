@@ -1,4 +1,5 @@
 import { SVGProps } from 'react';
+
 export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'

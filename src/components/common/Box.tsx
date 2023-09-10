@@ -1,11 +1,13 @@
-import { PropsWithAs, PropsWithClassName } from '@/types/idnex';
 import { ElementType, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 
+import { PropsWithAs, PropsWithClassName } from '@/types';
+
 const defaultComponent = 'div';
 
-type BoxProps<E extends ElementType> =
-  {} & PropsWithChildren & PropsWithClassName & PropsWithAs<E>;
+type BoxProps<E extends ElementType> = {} & PropsWithChildren &
+  PropsWithClassName &
+  PropsWithAs<E>;
 
 export const Box = <E extends ElementType>({
   as,

@@ -1,6 +1,17 @@
 {
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "semi": true,
   "trailingComma": "es5",
   "singleQuote": true,
-  "jsxSingleQuote": true
+  "jsxSingleQuote": true,
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@/components/?(.*)$",
+    "^@/providers/?(.*)$",
+    "@/types/?(.*)$",
+    "@/icons/(.*)$",
+    "^(.*)\\.css$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
