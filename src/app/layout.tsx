@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ToastContainer } from 'react-toastify';
 import { twMerge } from 'tailwind-merge';
 
 import { Box } from '@/components/common/Box';
@@ -8,6 +7,7 @@ import { Flex } from '@/components/common/Flex';
 import { Sidebar } from '@/components/sections/Sidebar';
 
 import { Providers } from '@/providers';
+import { ToastProvider } from '@/providers/ToastProvider';
 
 import './globals.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -54,18 +54,7 @@ export default function RootLayout({
               {children}
             </Box>
           </Flex>
-          <ToastContainer
-            position='top-right'
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme={'dark'}
-          />
+          <ToastProvider />
         </body>
       </Providers>
     </html>

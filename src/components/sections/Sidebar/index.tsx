@@ -90,7 +90,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
           checked={isDarkTheme}
           id='theme-switch'
           onChange={() => {
-            toast('Theme changed', { theme: isDarkTheme ? 'dark' : 'light' });
+            toast('Theme changed');
             switchTheme();
           }}
           className={twMerge(
