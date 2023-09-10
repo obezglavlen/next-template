@@ -1,5 +1,6 @@
 'use client';
 
+import { useIsClient } from '@uidotdev/usehooks';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { twMerge } from 'tailwind-merge';
@@ -20,6 +21,7 @@ type HeaderProps = {} & PropsWithClassName;
 export const Sidebar = ({ className }: HeaderProps) => {
   const { isDarkTheme, switchTheme } = useThemeContext();
   const [isOpen, setIsOpen] = useState<boolean>(true);
+  const isMounted = useIsClient();
   const toggleOpen = () => {
     setIsOpen((i) => !i);
   };

@@ -26,8 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <Providers>
         <body className={inter.className}>
+      <Providers>
           <Flex
             as='main'
             className={twMerge('justify-between', 'py-2', 'h-full', 'w-full')}
@@ -45,9 +45,8 @@ export default function RootLayout({
               {children}
             </Box>
           </Flex>
-          <ToastProvider />
-        </body>
       </Providers>
+        </body>
     </html>
   );
 }
