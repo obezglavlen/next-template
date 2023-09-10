@@ -1,11 +1,11 @@
 'use client';
 
-import { useIsClient } from '@uidotdev/usehooks';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { twMerge } from 'tailwind-merge';
 
 import { Flex } from '@/components/common/Flex';
+import { SvgIcon } from '@/components/common/SvgIcon';
 
 import { useThemeContext } from '@/providers/ThemeProvider';
 
@@ -21,7 +21,6 @@ type HeaderProps = {} & PropsWithClassName;
 export const Sidebar = ({ className }: HeaderProps) => {
   const { isDarkTheme, switchTheme } = useThemeContext();
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  const isMounted = useIsClient();
   const toggleOpen = () => {
     setIsOpen((i) => !i);
   };
@@ -58,34 +57,42 @@ export const Sidebar = ({ className }: HeaderProps) => {
         onClick={toggleOpen}
       >
         {isOpen ? (
-          <LeftIcon
+          <SvgIcon
             className={twMerge('text-green-600', 'mr-0.5')}
             width={32}
             height={32}
-          />
+          >
+            <LeftIcon />
+          </SvgIcon>
         ) : (
-          <RightIcon
+          <SvgIcon
             className={twMerge('text-green-600', 'ml-0.5')}
             width={32}
             height={32}
-          />
+          >
+            <RightIcon />
+          </SvgIcon>
         )}
       </button>
       <div className={twMerge('h-8', 'w-8', 'relative', 'cursor-pointer')}>
         {isDarkTheme ? (
-          <MoonIcon
+          <SvgIcon
             height={32}
             width={32}
             className='text-slate-50'
             strokeWidth={1}
-          />
+          >
+            <MoonIcon />
+          </SvgIcon>
         ) : (
-          <SunIcon
+          <SvgIcon
             height={32}
             width={32}
             className='text-slate-50'
             strokeWidth={1}
-          />
+          >
+            <SunIcon />
+          </SvgIcon>
         )}
         <input
           type='checkbox'

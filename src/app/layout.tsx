@@ -7,7 +7,6 @@ import { Flex } from '@/components/common/Flex';
 import { Sidebar } from '@/components/sections/Sidebar';
 
 import { Providers } from '@/providers';
-import { ToastProvider } from '@/providers/ToastProvider';
 
 import './globals.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -26,8 +25,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-        <body className={inter.className}>
-      <Providers>
+      <body className={inter.className}>
+        <Providers>
           <Flex
             as='main'
             className={twMerge('justify-between', 'py-2', 'h-full', 'w-full')}
@@ -45,8 +44,8 @@ export default function RootLayout({
               {children}
             </Box>
           </Flex>
-      </Providers>
-        </body>
+        </Providers>
+      </body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { PropsWithAs, PropsWithClassName } from '@/types';
+import { PropsWithClassName } from '@/types';
 
 type ButtonProps = {} & PropsWithChildren &
   PropsWithClassName &
