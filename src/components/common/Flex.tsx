@@ -24,14 +24,7 @@ export const Flex = <E extends ElementType>({
 
   return (
     <Component
-      className={twMerge(
-        `
-        flex
-        ${_direction}
-        gap-2
-        `,
-        className
-      )}
+      className={twMerge('flex', _direction, 'gap-2', className)}
       {...other}
     >
       {children}

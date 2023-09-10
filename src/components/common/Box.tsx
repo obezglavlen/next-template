@@ -17,16 +17,7 @@ export const Box = <E extends ElementType>({
 }: BoxProps<E>) => {
   const Component = as || defaultComponent;
   return (
-    <Component
-      className={twMerge(
-        `
-        block
-        p-2
-        `,
-        className
-      )}
-      {...other}
-    >
+    <Component className={twMerge('block', 'p-2', className)} {...other}>
       {children}
     </Component>
   );

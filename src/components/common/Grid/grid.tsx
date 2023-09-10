@@ -61,15 +61,7 @@ export const Grid = <E extends ElementType>({
 
   return (
     <Component
-      className={twMerge(
-        `
-        grid
-        ${_auto}
-        ${_gridCols}
-        ${_gridRows}
-        `,
-        className
-      )}
+      className={twMerge('grid', _auto, _gridCols, _gridRows, className)}
       {...other}
     >
       {children}

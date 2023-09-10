@@ -8,12 +8,10 @@ export default function Home() {
     <Flex
       direction='col'
       className={twMerge(
-        `
-        items-center
-        justify-center
-        h-full
-        bg-slate-600
-        `
+        'items-center',
+        'justify-center',
+        'h-full',
+        'bg-slate-600'
       )}
     >
       <Temp />

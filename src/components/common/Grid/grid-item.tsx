@@ -55,13 +55,7 @@ export const GridItem = <E extends ElementType>({
     <Box
       as={as as ElementType}
       {...other}
-      className={twMerge(
-        `
-        ${_colSpan}
-        ${_rowSpan}
-        `,
-        className
-      )}
+      className={twMerge(_colSpan, _rowSpan, className)}
     >
       {children}
     </Box>

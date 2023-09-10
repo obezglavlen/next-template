@@ -30,25 +30,16 @@ export default function RootLayout({
         <body className={inter.className}>
           <Flex
             as='main'
-            className={twMerge(
-              `
-              justify-between
-              py-2
-              h-full
-              w-full
-              `
-            )}
+            className={twMerge('justify-between', 'py-2', 'h-full', 'w-full')}
           >
             <Sidebar />
             <Box
               className={twMerge(
-                `
-              rounded-l-md
-              p-0
-              overflow-hidden
-              h-full
-              w-full
-              `
+                'rounded-l-md',
+                'p-0',
+                'overflow-hidden',
+                'h-full',
+                'w-full'
               )}
             >
               {children}
