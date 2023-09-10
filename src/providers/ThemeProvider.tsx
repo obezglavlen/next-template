@@ -16,7 +16,6 @@ const themeContext = createContext<{
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const deviceWantDark = useMediaQuery('(prefers-color-scheme: dark)');
-  console.log(deviceWantDark);
   const [isDarkTheme, setIsDarkTheme] = useLocalStorage<boolean>(
     'dark-theme',
     deviceWantDark
@@ -41,7 +40,6 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
 
 export const useThemeContext = () => {
   const context = useContext(themeContext);
-  console.log(context);
   if (!context) {
     throw new Error('themeContext can be used only within ThemeProvider');
   }

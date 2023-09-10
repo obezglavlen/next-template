@@ -1,29 +1,31 @@
+import { Flex } from '@/components/common/Flex';
+import { Grid } from '@/components/common/Grid';
 import { twMerge } from 'tailwind-merge';
 
 export default function Home() {
   return (
-    <div
+    <Flex
+      direction='col'
       className={twMerge(
         `
-        flex
-        flex-col
         items-center
+        justify-center
         h-full
-        bg-slate-700`
+        bg-slate-600
+        `
       )}
     >
-      <p
-        className={twMerge(
-          `
-          text-zinc-950
-          dark:text-zinc-50
-          font-bold
-          mt-20
-          text-4xl`
-        )}
-      >
-        Hello world
-      </p>
-    </div>
+      <Grid.Root col={2} row={4} className='text-black'>
+        <Grid.Item colSpan={2} className='bg-green-100'>
+          Hello
+        </Grid.Item>
+        <Grid.Item rowSpan={3} className='bg-yellow-100'>
+          World
+        </Grid.Item>
+        <Grid.Item rowSpan={3} className='bg-blue-100'>
+          !
+        </Grid.Item>
+      </Grid.Root>
+    </Flex>
   );
 }

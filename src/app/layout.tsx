@@ -31,7 +31,8 @@ export default function RootLayout({
             `
             justify-between
             py-2
-            `
+            `,
+            inter.className
           )}
         >
           <Sidebar />
@@ -49,7 +50,7 @@ export default function RootLayout({
             {children}
           </Box>
         </Flex>
-        <ToastContainer
+        {/* <ToastContainer
           position='top-right'
           autoClose={5000}
           hideProgressBar={false}
@@ -60,7 +61,7 @@ export default function RootLayout({
           draggable
           pauseOnHover
           theme={'dark'}
-        />
+        /> */}
       </Providers>
     </html>
   );
