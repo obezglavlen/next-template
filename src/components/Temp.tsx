@@ -3,11 +3,15 @@
 import { toast } from 'react-toastify';
 
 import { Button } from '@/components/common/Button';
+import { Flex } from '@/components/common/Flex';
 import { Grid } from '@/components/common/Grid';
 
+import { onClick } from '@/services/temp';
+
 export const Temp = () => {
-  const onClick = () => {
+  const handleClick = () => {
     toast('Yo mama gay');
+    onClick();
   };
 
   return (
@@ -18,10 +22,18 @@ export const Temp = () => {
       <Grid.Item rowSpan={3} className='bg-yellow-100'>
         World
       </Grid.Item>
-      <Grid.Item rowSpan={3} className='bg-blue-100'>
-        <Button.Default type='button' onClick={onClick}>
-          Тин дин тин дин
-        </Button.Default>
+      <Grid.Item rowSpan={3} className='bg-blue-500'>
+        <Flex direction='col'>
+          <Button.Default type='button' onClick={handleClick}>
+            Тин дин тин дин
+          </Button.Default>
+          <Button.Outlined type='button' onClick={handleClick}>
+            Тин дин тин дин
+          </Button.Outlined>
+          <Button.Filled type='button' onClick={handleClick}>
+            Тин дин тин дин
+          </Button.Filled>
+        </Flex>
       </Grid.Item>
     </Grid.Root>
   );

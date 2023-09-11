@@ -1,12 +1,7 @@
 'use client';
 
 // @ts-ignore
-import {
-  PropsWithChildren,
-  createContext,
-  useContext,
-  useLayoutEffect,
-} from 'react';
+import { PropsWithChildren, createContext, useContext, useEffect } from 'react';
 import { useLocalStorage, useMediaQuery } from 'usehooks-ts';
 
 const themeContext = createContext<{
@@ -25,7 +20,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     setIsDarkTheme((t) => !t);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     isDarkTheme
       ? document.documentElement.classList.add('dark')
       : document.documentElement.classList.remove('dark');

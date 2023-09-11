@@ -1,11 +1,6 @@
-import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { PropsWithClassName } from '@/types';
-
-type ButtonProps = {} & PropsWithChildren &
-  PropsWithClassName &
-  ComponentPropsWithoutRef<'button'>;
+import type { ButtonProps } from '@/components/common/Button';
 
 export const BaseButton = ({ children, className, ...other }: ButtonProps) => {
   return (
@@ -17,8 +12,8 @@ export const BaseButton = ({ children, className, ...other }: ButtonProps) => {
         'ring-pink-100',
         'hover:ring-pink-200',
         'rounded-sm',
-        'bg-red-200 bg-opacity-30',
-        'active:bg-red-300 active:bg-opacity-30',
+        'bg-red-200 bg-opacity-40',
+        'active:bg-red-300 active:bg-opacity-40',
         'p-2',
         className
       )}

@@ -8,8 +8,9 @@
     "<THIRD_PARTY_MODULES>",
     "^@/components/?(.*)$",
     "^@/providers/?(.*)$",
-    "@/types/?(.*)$",
-    "@/icons/(.*)$",
+    "^@/services/?(.*)$",
+    "^@/types/?(.*)$",
+    "^@/icons/?(.*)$",
     "^(.*)\\.css$"
   ],
   "importOrderSeparation": true,
