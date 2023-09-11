@@ -17,6 +17,8 @@ export const SvgIcon = ({
   children,
   className,
   viewBox = '0 0 24 24',
+  width = 24,
+  height = 24,
   ...other
 }: SvgIconProps) => {
   const isMounted = useIsClient();
@@ -24,15 +26,9 @@ export const SvgIcon = ({
   if (isValidElement(children)) {
     const clonedChildren = cloneElement<SVGProps<SVGSVGElement>>(
       children as ReactElement,
-      { ...other }
+      { ...other, viewBox, width, height, className }
     );
-    return (
-      isMounted && (
-        <svg viewBox={viewBox} className={className}>
-          {clonedChildren}
-        </svg>
-      )
-    );
+    return isMounted && clonedChildren;
   } else {
     throw new Error('SvgIcon component should contain only svg child');
   }
