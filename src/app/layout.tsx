@@ -29,7 +29,7 @@ export default function RootLayout({
         <Providers>
           <Flex
             as='main'
-            className={twMerge('justify-between', 'py-2', 'h-full', 'w-full')}
+            className={twMerge('justify-between', 'py-2', 'w-full')}
           >
             <Sidebar />
             <Box
@@ -37,7 +37,6 @@ export default function RootLayout({
                 'rounded-l-md',
                 'p-0',
                 'overflow-hidden',
-                'h-full',
                 'w-full'
               )}
             >

@@ -32,12 +32,13 @@ export const Sidebar = ({ className }: HeaderProps) => {
       className={twMerge(
         'bg-primary dark:bg-secondary',
         'w-[4rem]',
+        isOpen && 'w-[16rem]',
+        'h-screen',
         'rounded-r-md',
         'p-2',
-        'h-full',
-        'relative',
         'transition-all',
-        isOpen && 'w-[16rem]',
+        'sticky',
+        'left-0 top-0',
         className
       )}
     >
