@@ -30,7 +30,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
       as='aside'
       direction='col'
       className={twMerge(
-        'bg-slate-600',
+        'bg-primary dark:bg-secondary',
         'w-[4rem]',
         'rounded-r-md',
         'p-2',
@@ -47,9 +47,13 @@ export const Sidebar = ({ className }: HeaderProps) => {
           'h-10',
           'w-10',
           'absolute',
-          '-right-6',
+          '-right-4',
           'rounded-full',
-          'bg-gray-900',
+          'from-primary-400 to-primary',
+          'dark:from-secondary-600 dark:to-secondary',
+          'bg-gradient-to-l',
+          // 'bg-primary-400 dark:bg-secondary-600',
+          'text-secondary',
           'grid',
           'place-items-center',
           'overflow-hidden'
@@ -57,11 +61,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
         onClick={toggleOpen}
       >
         {isOpen ? (
-          <SvgIcon
-            className={twMerge('text-green-600', 'mr-0.5')}
-            width={32}
-            height={32}
-          >
+          <SvgIcon className={twMerge('mr-0.5')} width={32} height={32}>
             <LeftIcon />
           </SvgIcon>
         ) : (
@@ -74,23 +74,23 @@ export const Sidebar = ({ className }: HeaderProps) => {
           </SvgIcon>
         )}
       </button>
-      <div className={twMerge('h-8', 'w-8', 'relative', 'cursor-pointer')}>
+      <div
+        className={twMerge(
+          'h-8',
+          'w-8',
+          'relative',
+          'cursor-pointer',
+          'text-secondary dark:text-primary',
+          'mt-auto ml-auto',
+          !isOpen && 'mr-auto'
+        )}
+      >
         {isDarkTheme ? (
-          <SvgIcon
-            height={32}
-            width={32}
-            className='text-slate-50'
-            strokeWidth={1}
-          >
+          <SvgIcon height={32} width={32} strokeWidth={1}>
             <MoonIcon />
           </SvgIcon>
         ) : (
-          <SvgIcon
-            height={32}
-            width={32}
-            className='text-slate-50'
-            strokeWidth={1}
-          >
+          <SvgIcon height={32} width={32} strokeWidth={1}>
             <SunIcon />
           </SvgIcon>
         )}

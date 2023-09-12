@@ -11,7 +11,7 @@ export default function Home() {
         'items-center',
         'justify-center',
         'h-full',
-        'bg-slate-600'
+        'bg-primary dark:bg-secondary'
       )}
     >
       <Temp />

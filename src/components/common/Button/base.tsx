@@ -10,14 +10,10 @@ export const BaseButton = ({ children, className, ...other }: ButtonProps) => {
       className={twMerge(
         'min-w-[8rem]',
         'min-h-[2rem]',
-        'ring-2',
-        'ring-pink-100',
-        'hover:ring-pink-200',
-        'rounded-sm',
-        'bg-red-200 bg-opacity-40',
-        'active:bg-red-300 active:bg-opacity-40',
+        'rounded-md',
         'p-2',
         'justify-center items-center',
+        'text-black dark:text-white',
         className
       )}
       {...other}
