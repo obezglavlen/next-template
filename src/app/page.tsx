@@ -1,6 +1,5 @@
 import { twMerge } from 'tailwind-merge';
 
-import { Temp } from '@/components/Temp';
 import { Flex } from '@/components/common/Flex';
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
         'bg-primary dark:bg-secondary'
       )}
     >
-      <Temp />
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, perferendis?
       Enim ullam nemo voluptatem esse obcaecati totam aliquam veritatis sit! Est
       quod odio veniam ipsum itaque, in harum repellendus voluptatibus.

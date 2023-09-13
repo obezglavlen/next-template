@@ -1,5 +1,17 @@
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { PrismaClient } from '@prisma/client';
 import { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+
+const prismaClientSingleton = () => {
+  return new PrismaClient();
+};
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined;
+};
+export const prisma = globalForPrisma.prisma ?? prismaClientSingleton();
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
 export const authOptions: AuthOptions = {
   providers: [
@@ -14,4 +26,5 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  adapter: PrismaAdapter(prisma),
 };
