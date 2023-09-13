@@ -1,6 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
 import { Flex } from '@/components/common/Flex';
+import { Temp } from '@/components/Temp';
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         'min-h-full',
         'bg-primary dark:bg-secondary'
       )}
-    ></Flex>
+    >
+      <Temp />
+    </Flex>
   );
 }
