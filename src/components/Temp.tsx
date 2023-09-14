@@ -1,7 +1,8 @@
 'use client';
 
+import { usePathname,  } from 'next/navigation';
 import { Flex } from './common/Flex';
-import { useQueryState } from '@/hooks/useQueryState';
+import { useQueryState } from '@/hooks/use-query-state';
 
 export const Temp = () => {
   const [query, setQuery] = useQueryState('query');

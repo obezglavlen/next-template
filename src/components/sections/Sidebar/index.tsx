@@ -1,5 +1,6 @@
 'use client';
 
+import { useIntl } from '@/intl/use-intl';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { twMerge } from 'tailwind-merge';
@@ -19,6 +20,7 @@ import { SunIcon } from '@/icons/feather/SunIcon';
 type HeaderProps = {} & PropsWithClassName;
 
 export const Sidebar = ({ className }: HeaderProps) => {
+  const t = useIntl();
   const { isDarkTheme, switchTheme } = useThemeContext();
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const toggleOpen = () => {
@@ -33,7 +35,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
         'bg-primary dark:bg-secondary',
         'w-[4rem]',
         isOpen && 'w-[16rem]',
-        'h-screen',
+        'h-full',
         'rounded-r-md',
         'p-2',
         'transition-all',
@@ -100,7 +102,7 @@ export const Sidebar = ({ className }: HeaderProps) => {
           checked={isDarkTheme}
           id='theme-switch'
           onChange={() => {
-            toast('Theme changed');
+            toast(t('notifications.colorTheme') || '');
             switchTheme();
           }}
           className={twMerge(

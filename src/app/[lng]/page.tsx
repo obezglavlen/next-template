@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
-import { Flex } from '@/components/common/Flex';
 import { Temp } from '@/components/Temp';
+import { Flex } from '@/components/common/Flex';
 
 export default function Home() {
   return (
