@@ -1,5 +1,5 @@
+import { get } from '@/utils/get';
 import { useParams } from 'next/navigation';
-import { get } from 'radash';
 import { useCallback, useEffect, useState } from 'react';
 
 export const useIntl = () => {
