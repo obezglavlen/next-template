@@ -2,6 +2,7 @@
 CREATE TABLE "Account" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
+    "password" TEXT,
     "providerType" TEXT NOT NULL,
     "providerId" TEXT NOT NULL,
     "providerAccountId" TEXT NOT NULL,

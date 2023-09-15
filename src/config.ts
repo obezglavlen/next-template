@@ -1,5 +1,6 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcrypt';
 import { AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
@@ -17,14 +18,36 @@ export const authOptions: AuthOptions = {
   providers: [
     Credentials({
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'user_01' },
+        email: { label: 'Email', type: 'email', placeholder: 'user_01@a.c' },
         password: { label: 'Password', type: 'password' },
       },
       authorize: async (_credentials, _req) => {
-        const user = { username: 'user_01', id: '1' };
-        return user;
+        try {
+          if (!_credentials) {
+            return null;
+          }
+          const hashedPassword = await bcrypt.hash(_credentials.password, 1);
+          const account = await prisma.account.findFirst({
+            where: {
+              user: {
+                email: _credentials.email,
+              },
+            },
+            include: { user: true },
+          });
+          if (account?.password !== hashedPassword) {
+            return null;
+          }
+          return account.user;
+        } catch (err) {
+          console.error(err);
+          throw err;
+        }
       },
     }),
   ],
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: 'jwt',
+  },
 };
