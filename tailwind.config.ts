@@ -18,6 +18,8 @@ const config: Config = {
       transparent: 'transparent',
       black: 'black',
       white: 'white',
+      red: 'red',
+      yellow: 'yellow',
       primary: {
         DEFAULT: '#eae0cc',
         100: '#3e3219',
@@ -70,7 +72,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
   darkMode: 'class',
 };
 export default config;

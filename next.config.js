@@ -4,6 +4,9 @@ const nextConfig = {
     serverActions: true,
   },
   reactStrictMode: true,
+  images: {
+    domains: ['tailwindui.com'],
+  },
 };
 
 module.exports = nextConfig;
