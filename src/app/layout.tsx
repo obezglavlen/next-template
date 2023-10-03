@@ -1,10 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { twMerge } from 'tailwind-merge';
-
-import { Box } from '@/components/common/Box';
-import { Flex } from '@/components/common/Flex';
-import { Sidebar } from '@/components/sections/Sidebar';
 
 import { Providers } from '@/providers';
 
@@ -26,25 +21,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Providers>
-          <Flex
-            as='main'
-            className={twMerge('justify-between', 'py-2', 'w-full', 'h-full')}
-          >
-            <Sidebar />
-            <Box
-              className={twMerge(
-                'rounded-l-md',
-                'p-0',
-                'overflow-hidden',
-                'w-full',
-                'h-full'
-              )}
-            >
-              {children}
-            </Box>
-          </Flex>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
