@@ -27,6 +27,7 @@
     "negotiator": "^0.6.3",
     "next": "13.5.4",
     "next-auth": "^4.23.2",
+    "next-themes": "^0.2.1",
     "next-usequerystate": "^1.8.2",
     "nodemailer": "^6.9.5",
     "prettier": "^3.0.3",
