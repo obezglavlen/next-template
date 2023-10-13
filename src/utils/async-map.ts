@@ -2,7 +2,7 @@ import { slice } from './slice';
 
 export const asyncMap = async <T, R>(
   values: T[],
-  callback: (_v?: T, _i?: number) => Promise<R>,
+  callback: ($v?: T, $i?: number) => Promise<R>,
   size?: number
 ): Promise<R[]> => {
   let result: R[] = [];

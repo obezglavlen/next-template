@@ -24,7 +24,7 @@ export const useQueryState = (key: string, defaultValue?: any) => {
       setState(_value);
       newUrl.set(key, _value);
     }
-    router.push('?' + newUrl.toString());
+    router.replace('?' + newUrl.toString(), { scroll: false });
   };
 
   return [state, handleSetState];

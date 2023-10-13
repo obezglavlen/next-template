@@ -1,29 +1,39 @@
 'use client';
 
-import { Button, Flex, Switch } from '@radix-ui/themes';
-import { toast } from 'sonner';
-
-import { useTheme } from 'next-themes';
+import { usePagination } from '@/hooks/use-pagination';
+import useSWR from 'swr';
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
-  const makeAToast = () =>
-    toast('Here you go', {
-      description: 'This is a toast',
-    });
-
+  const { page, setPage, limit, setLimit } = usePagination();
+  const {
+    data: todos = [],
+    error,
+    isLoading,
+  } = useSWR([
+    `https://jsonplaceholder.typicode.com/todos?_limit=${limit}&_page=${page}`,
+  ]);
   return (
-    <Flex>
-      <Button onClick={makeAToast}>Make a toast</Button>
-      <Flex>
-        Dark
-        <Switch
-          defaultChecked={theme === 'light'}
-          onCheckedChange={(_c) => setTheme(_c ? 'light' : 'dark')}
-        />
-        Light
-      </Flex>
-    </Flex>
+    <>
+      <section>
+        {!isLoading && !error && (
+          <div>
+            Data:
+            <pre>{JSON.stringify(todos, null, 2)}</pre>
+          </div>
+        )}
+      </section>
+      <input
+        name='page'
+        type='number'
+        value={page}
+        onChange={(e) => setPage(e.target.value)}
+      />
+      <input
+        name='limit'
+        type='number'
+        value={limit}
+        onChange={(e) => setLimit(e.target.value)}
+      />
+    </>
   );
 }

@@ -1,23 +1,22 @@
+import { useCurrentLanguage } from './use-current-language';
 import { get } from '@/utils/get';
-import { useParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
+import useSWR from 'swr';
 
-export const useIntl = () => {
-  const params = useParams();
-  const lang = params.lng;
-  const [state, setState] = useState<Record<string, any> | null>(null);
+export const useIntl = (): (($key: string) => string) => {
+  const lang = useCurrentLanguage();
+
+  const { data, mutate } = useSWR<Record<string, any>>([`/intl/${lang}.json`]);
 
   useEffect(() => {
-    fetch(`/intl/${lang}.json`)
-      .then((res) => res.json())
-      .then((t) => setState(t));
-  }, [lang]);
+    mutate();
+  }, [lang, mutate]);
 
   const getValue = useCallback(
     (path: string): any => {
-      return get(state, path);
+      return get(data, path);
     },
-    [state]
+    [data]
   );
 
   return getValue;

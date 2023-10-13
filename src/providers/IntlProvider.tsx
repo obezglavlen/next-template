@@ -24,7 +24,7 @@ export const IntlProvider = ({ children }: PropsWithChildren) => {
         }
       }
     }
-  }, [lang]);
+  }, [lang, pathname, router]);
 
   return children;
 };
