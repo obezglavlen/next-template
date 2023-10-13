@@ -1,7 +1,7 @@
 'use client';
 
 import { getProviders, signIn } from 'next-auth/react';
-import { useRouter } from 'next-nprogress-bar';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 const defaultValues = {
