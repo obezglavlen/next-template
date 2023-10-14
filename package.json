@@ -36,6 +36,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.47.0",
     "sass": "^1.69.2",
+    "simplebar-react": "^3.2.4",
     "sonner": "^1.0.3",
     "swr": "^2.2.4",
     "typescript": "5.2.2",

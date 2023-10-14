@@ -4,7 +4,9 @@ const nextConfig = {
     serverActions: true,
   },
   reactStrictMode: true,
-  images: {},
+  images: {
+    domains: ['via.placeholder.com'],
+  },
 };
 
 module.exports = nextConfig;

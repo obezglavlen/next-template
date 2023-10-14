@@ -17,6 +17,7 @@ export const Providers = ({ children }: PropsWithChildren) => {
         shouldRetryOnError: true,
         errorRetryCount: 3,
         errorRetryInterval: 1000,
+        keepPreviousData: true,
       }}
     >
       <IntlProvider>

@@ -1,0 +1,17 @@
+@use '/src/css';
+
+.wrapper {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include css.px(2rem);
+  @include css.py(1rem);
+}
+
+.input {
+  display: inline;
+  @include css.px(1rem);
+  @include css.py(0.5rem);
+}
