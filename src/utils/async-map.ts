@@ -1,4 +1,4 @@
-import { slice } from './slice';
+import { slice } from './chunk';
 
 export const asyncMap = async <T, R>(
   values: T[],

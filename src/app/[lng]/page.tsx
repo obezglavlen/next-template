@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { useDebounce } from 'usehooks-ts';
 
 import { Avatar } from '@/components/Avatar';
-import { Input } from '@/components/common/Input';
+import { Pagination } from '@/components/Pagination';
 import { ScrollBar } from '@/components/common/ScrollBar';
 
 import 'simplebar-react/dist/simplebar.min.css';
@@ -19,7 +19,7 @@ type User = {
 };
 
 export default function Home() {
-  const { page, setPage, limit, setLimit } = usePagination();
+  const { page, setPage, limit, setLimit } = usePagination(undefined, 3);
   const deferredPage = useDebounce(page);
   const deferredLimit = useDebounce(limit);
   const { data: users = [], error } = useSWR<User[]>([
@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <section>
         Data:
-        <ScrollBar style={{ maxHeight: 400 }} color='white'>
+        <ScrollBar style={{ height: 400 }} color='white'>
           {!error &&
             users.map((user) => {
               const avatarUrl = 'https://via.placeholder.com/600/';
@@ -39,7 +39,7 @@ export default function Home() {
                 <div
                   key={user.id}
                   style={{
-                    padding: '2rem',
+                    padding: '1rem',
                     background: '#1f1f1f',
                     margin: '1rem',
                   }}
@@ -58,24 +58,12 @@ export default function Home() {
                     </strong>
                   </div>
                   <sub style={{ marginLeft: '2.5rem' }}>{user.email}</sub>
-                  <pre>{JSON.stringify(user.address, null, 2)}</pre>
                 </div>
               );
             })}
         </ScrollBar>
       </section>
-      <Input
-        name='page'
-        type='number'
-        onChange={(e) => setPage(e.target.value)}
-        value={page}
-      />
-      <Input
-        name='limit'
-        type='number'
-        onChange={(e) => setLimit(e.target.value)}
-        value={limit}
-      />
+      <Pagination total={4} activePage={page} onChange={setPage} />
     </>
   );
 }

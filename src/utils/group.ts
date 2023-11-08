@@ -1,6 +1,6 @@
 import { get } from '@/utils/get';
 
-export const group = (arr: any[], key: string | string[]) => {
+export const group = <T>(arr: T[], key: string | string[]) => {
   return arr.reduce((acc, curr) => {
     const groupKey = Array.isArray(key)
       ? key.map((k) => get(curr, k)).join('_')
@@ -10,5 +10,5 @@ export const group = (arr: any[], key: string | string[]) => {
     }
     acc[groupKey].push(curr);
     return acc;
-  }, {});
+  }, {} as Record<string, T[]>);
 };

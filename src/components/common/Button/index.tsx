@@ -1,5 +1,5 @@
 import { Slot } from '../Slot';
-import buttonStyle from './styles.module.scss';
+import s from './styles.module.scss';
 import { cn } from '@/css/cn';
 import React, { PropsWithChildren } from 'react';
 
@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const Comp = asChild ? Slot : 'button';
   return (
-    <Comp className={cn(buttonStyle.button)} onClick={onClick}>
+    <Comp className={cn(s.button)} onClick={onClick}>
       {children}
     </Comp>
   );
