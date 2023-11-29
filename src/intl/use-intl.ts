@@ -1,12 +1,14 @@
 import { useCurrentLanguage } from './use-current-language';
 import { get } from '@/utils/get';
+import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect } from 'react';
-import { useQuery } from 'react-query';
 
 export const useIntl = (): (($key: string) => string) => {
   const lang = useCurrentLanguage();
 
-  const { data, refetch } = useQuery<Record<string, any>>([`/intl/${lang}.json`]);
+  const { data, refetch } = useQuery<Record<string, any>>({
+    queryKey: [`/intl/${lang}.json`],
+  });
 
   useEffect(() => {
     refetch();

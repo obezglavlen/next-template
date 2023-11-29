@@ -1,8 +1,8 @@
 'use client';
 
 import { usePagination } from '@/hooks/use-pagination';
+import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from '@uidotdev/usehooks';
-import { useQuery } from 'react-query';
 
 import { Avatar } from '@/components/Avatar';
 import { Pagination } from '@/components/Pagination';
@@ -22,9 +22,11 @@ export default function Home() {
   const { page, setPage, limit, setLimit } = usePagination(undefined, 3);
   const deferredPage = useDebounce(page, 300);
   const deferredLimit = useDebounce(limit, 300);
-  const { data: users = [], error } = useQuery<User[]>([
-    `https://jsonplaceholder.typicode.com/users?_limit=${deferredLimit}&_page=${deferredPage}`,
-  ]);
+  const { data: users = [], error } = useQuery<User[]>({
+    queryKey: [
+      `https://jsonplaceholder.typicode.com/users?_limit=${deferredLimit}&_page=${deferredPage}`,
+    ],
+  });
 
   return (
     <>
