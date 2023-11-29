@@ -1,16 +1,16 @@
 import { useCurrentLanguage } from './use-current-language';
 import { get } from '@/utils/get';
 import { useCallback, useEffect } from 'react';
-import useSWR from 'swr';
+import { useQuery } from 'react-query';
 
 export const useIntl = (): (($key: string) => string) => {
   const lang = useCurrentLanguage();
 
-  const { data, mutate } = useSWR<Record<string, any>>([`/intl/${lang}.json`]);
+  const { data, refetch } = useQuery<Record<string, any>>([`/intl/${lang}.json`]);
 
   useEffect(() => {
-    mutate();
-  }, [lang, mutate]);
+    refetch();
+  }, [lang, refetch]);
 
   const getValue = useCallback(
     (path: string): any => {

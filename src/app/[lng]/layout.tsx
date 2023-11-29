@@ -2,7 +2,7 @@
 
 import { breakpoints } from '@/css/breakpoints';
 import { PropsWithChildren } from 'react';
-import { useWindowSize } from 'usehooks-ts';
+import { useWindowSize } from '@uidotdev/usehooks';
 
 import { navigationConfig } from '@/components/navigation/config';
 import HorizontalNavigation from '@/components/navigation/horizontal';
@@ -10,7 +10,7 @@ import VerticalNavigation from '@/components/navigation/vertical';
 
 export default function Layout({ children }: PropsWithChildren) {
   const { width } = useWindowSize();
-  const isMobile = true || width <= breakpoints.sm;
+  const isMobile = true || !width || width! <= breakpoints.sm;
 
   return (
     <>

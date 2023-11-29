@@ -1,8 +1,7 @@
 import s from './styles.module.scss';
 import { cn } from '@/css/cn';
 import Image from 'next/image';
-import { ComponentPropsWithoutRef } from 'react';
-import { useBoolean } from 'usehooks-ts';
+import { ComponentPropsWithoutRef, useState } from 'react';
 
 import { PropsWithClassName } from '@/types';
 
@@ -21,8 +20,8 @@ export const Avatar = ({
   style,
   ...other
 }: AvatarProps) => {
-  const { value: err, setTrue: setTrueErr } = useBoolean(false);
-  const { value: load, setTrue: setTrueLoad } = useBoolean(false);
+  const [err, setErr] = useState(false);
+  const [load, setLoad] = useState(false);
   return (
     <div
       className={cn(s.avatar, className)}
@@ -34,8 +33,8 @@ export const Avatar = ({
           width={size}
           height={size}
           src={load ? src : '/assets/user-placeholder.jpeg'}
-          onError={() => setTrueErr()}
-          onLoad={() => setTrueLoad()}
+          onError={() => setErr(true)}
+          onLoad={() => setLoad(true)}
           alt='Avatar'
         />
       ) : (

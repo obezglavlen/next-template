@@ -5,7 +5,7 @@ import {
   cloneElement,
   isValidElement,
 } from 'react';
-import { useIsClient } from 'usehooks-ts';
+import { useIsClient } from '@uidotdev/usehooks';
 
 type SvgIconProps = SVGProps<SVGSVGElement> & PropsWithChildren;
 

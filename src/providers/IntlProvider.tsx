@@ -3,13 +3,12 @@
 import { availableLanguages } from '@/intl/config';
 import { usePathname, useRouter } from 'next/navigation';
 import { PropsWithChildren, useEffect } from 'react';
-import { useReadLocalStorage } from 'usehooks-ts';
 
 export const IntlProvider = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
   const router = useRouter();
-  const lang = useReadLocalStorage('language');
   useEffect(() => {
+    const lang = localStorage.getItem('language');
     if (lang) {
       const pathNameMissLocale = availableLanguages.every(
         (l) => !pathname.startsWith(`/${l}/`) && pathname !== `/${l}`
@@ -24,7 +23,7 @@ export const IntlProvider = ({ children }: PropsWithChildren) => {
         }
       }
     }
-  }, [lang, pathname, router]);
+  }, [pathname, router]);
 
   return children;
 };
