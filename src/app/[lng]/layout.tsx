@@ -1,11 +1,11 @@
 'use client';
 
 import { breakpoints } from '@/css/breakpoints';
-import { PropsWithChildren } from 'react';
 import { useWindowSize } from '@uidotdev/usehooks';
+import { PropsWithChildren } from 'react';
 
-import { navigationConfig } from '@/components/navigation/config';
 import HorizontalNavigation from '@/components/navigation/horizontal';
+import { navigationRoutes } from '@/components/navigation/routes';
 import VerticalNavigation from '@/components/navigation/vertical';
 
 export default function Layout({ children }: PropsWithChildren) {
@@ -15,9 +15,9 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <>
       {!isMobile ? (
-        <HorizontalNavigation config={navigationConfig} />
+        <HorizontalNavigation config={navigationRoutes} />
       ) : (
-        <VerticalNavigation config={navigationConfig} />
+        <VerticalNavigation config={navigationRoutes} />
       )}
       <main
         style={{

@@ -1,5 +1,0 @@
-@mixin darkMode {
-  [data-theme='dark'] & {
-    @content;
-  }
-}

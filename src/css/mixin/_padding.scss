@@ -1,9 +1,0 @@
-@mixin px($px) {
-  padding-left: $px;
-  padding-right: $px;
-}
-
-@mixin py($py) {
-  padding-top: $py;
-  padding-bottom: $py;
-}

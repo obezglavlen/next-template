@@ -3,7 +3,7 @@ export type Route = {
   href: string;
 };
 
-export const navigationConfig: Route[] = [
+export const navigationRoutes: Route[] = [
   {
     label: 'Home',
     href: '/',
