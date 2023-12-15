@@ -4,9 +4,6 @@ import { getProviders, signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '@/components/common/Button';
-import { Input } from '@/components/common/Input';
-
 const defaultValues = {
   email: '',
   password: '',
@@ -49,9 +46,9 @@ export default function Login() {
   return (
     <section>
       <form>
-        <Input placeholder='Email' {...form.register('email')} />
+        {/* <Input placeholder='Email' {...form.register('email')} />
         <Button onClick={form.handleSubmit(loginEmail)}>SignIn</Button>
-        <Button onClick={form.handleSubmit(loginGoogle)}>Google</Button>
+        <Button onClick={form.handleSubmit(loginGoogle)}>Google</Button> */}
       </form>
     </section>
   );

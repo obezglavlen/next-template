@@ -4,8 +4,6 @@ import { usePagination } from '@/hooks/use-pagination';
 import { useQuery } from '@tanstack/react-query';
 import { useDebounce } from '@uidotdev/usehooks';
 
-import { Avatar } from '@/components/Avatar';
-import { Pagination } from '@/components/Pagination';
 import { ScrollBar } from '@/components/common/ScrollBar';
 
 import 'simplebar-react/dist/simplebar.min.css';
@@ -47,13 +45,13 @@ export default function Home() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Avatar
+                    {/* <Avatar
                       initials={user.name
                         .split(' ')
                         .map((w) => w[0])
                         .join('')}
                       src={avatarUrl + sixRandomCharacter}
-                    />
+                    /> */}
 
                     <strong style={{ marginLeft: '0.5rem' }}>
                       {user.name}
@@ -65,7 +63,7 @@ export default function Home() {
             })}
         </ScrollBar>
       </section>
-      <Pagination total={4} activePage={page} onChange={setPage} />
+      {/* <Pagination total={4} activePage={page} onChange={setPage} /> */}
     </>
   );
 }
